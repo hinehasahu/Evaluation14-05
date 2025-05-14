@@ -22,7 +22,7 @@ const removeFile = async (path, time) => {
 
 setInterval(() => {
   const filename = Date.now();
-  let num = randomInt(1, 7);
+  let num = randomInt(1, 10);
 
   const data = new Uint8Array(
     Buffer.from(`File started processing with the duration of ${num} seconds`)
@@ -40,7 +40,7 @@ setInterval(() => {
         if (err) throw err;
         console.log("The file has been moved to In-Progress file!");
       });
-      writeFile(`./Completed/logs.txt`, `Final-Status : Completed ${new Date()}+\n`, (err) => {
+      writeFile(`./Completed/logs.txt`, `Final-Status : Completed ${new Date()}`, (err) => {
         if (err) throw err;
         console.log("The file has been moved to completed file!");
       });
@@ -49,3 +49,5 @@ setInterval(() => {
   });
   //   removeFile(`./Processing/${filename}.txt`,`${num*1000}`)
 }, 3000);
+
+
